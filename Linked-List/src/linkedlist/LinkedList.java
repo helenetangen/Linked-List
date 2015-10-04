@@ -96,6 +96,10 @@ public class LinkedList {
 	}
 	
 	
+	public void removeNode(Node node){
+		
+	}
+	
 	public void printLinkedList(){
 		Node current = head;
 		System.out.println("------------");
