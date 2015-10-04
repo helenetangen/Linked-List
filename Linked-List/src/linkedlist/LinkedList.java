@@ -2,23 +2,20 @@ package linkedlist;
 
 
 public class LinkedList {
-
+	
 	
 	public class Node {
 		private int id;
 		private Node next;
-		private Node previous;
 		
 		public Node(int id){
 			this.id = id;
 			this.next = null;
-			this.previous = null;
 		}
 		
-		public Node(int id, Node next, Node prevous){
+		public Node(int id, Node next){
 			this.id = id;
 			this.next = next;
-			this.previous = prevous;
 		}
 		
 		public int getId(){
@@ -31,14 +28,6 @@ public class LinkedList {
 		
 		public void setNext(Node newNext){
 			this.next = newNext;
-		}
-		
-		public Node getPrevious(){
-			return this.previous;
-		}
-		
-		public void setPrevious(Node newPrevious){
-			this.previous = newPrevious;
 		}
 	}
 	
@@ -59,14 +48,15 @@ public class LinkedList {
 		}
 		else{
 			tail.setNext(node);
-			node.setPrevious(tail);
 			tail = node;
 		}
 	}
 	
 	
 	public void removeNode(int id){
-		current = head;
+		current  = head;
+		previous = null;
+		
 		while (current != null){
 			if (current.getId() == id){
 				if (current == head && current == tail){
@@ -74,19 +64,18 @@ public class LinkedList {
 					tail = null; 
 				}
 				else if (current == head){
-					current.getNext() = head;
-					current.getNext().setPrevious(null);
+					head = current.getNext();
 				}
 				else if (current == tail){
-					current.getPrevious() = tail;
-					current.getPrevious().setNext(null);
+					tail = previous;
+					previous.setNext(null);
 				}
 				else{
-					current.getNext().setPrevous(current.Prevous);
-					current.getPrevous().setNext(current.Next);
+					previous.setNext(current.getNext());
 				}
 			}
-			current = current.getNext();
+			previous = current;
+			current  = current.getNext();
 		}
 	}
 	
