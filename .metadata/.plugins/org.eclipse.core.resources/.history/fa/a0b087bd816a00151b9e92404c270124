@@ -1,0 +1,26 @@
+package linkedlist;
+
+
+public class LinkedList {
+
+	
+	public class Node {
+		public int id;
+		public Node next;
+		public Node prevous;
+		
+		public Node(int id){
+			this.id = id;
+			this.next = null;
+			this.prevous = null;
+		}
+		
+		public Node(int id, Node next, Node prevous){
+			this.id = id;
+			this.next = next;
+			this.prevous = prevous;
+		}
+	}
+	
+	
+}
