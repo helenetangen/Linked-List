@@ -97,8 +97,25 @@ public class LinkedList {
 	
 	
 	public void removeNode(Node node){
-		
+		if (node == head && node == tail){
+			head = null;
+			tail = null;
+		}
+		else if (node == head){
+			head = node.getNext();
+		}
+		Node current  = head;
+		Node previous = null;
+		while (current != null){
+			if (current == node){
+				previous.setNext(current.getNext());
+				if (current == tail){
+					tail = previous;
+				}
+			}
+		}
 	}
+	
 	
 	public void printLinkedList(){
 		Node current = head;
