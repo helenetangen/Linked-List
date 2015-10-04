@@ -13,11 +13,6 @@ public class LinkedList {
 			this.next = null;
 		}
 		
-		public Node(int id, Node next){
-			this.id = id;
-			this.next = next;
-		}
-		
 		public int getId(){
 			return this.id;
 		}
@@ -32,12 +27,33 @@ public class LinkedList {
 	}
 	
 	
+	public static void main(String[] args){
+		LinkedList list = new LinkedList();
+		//Test nodes
+		Node nodeOne   = list.new Node(1);
+		Node nodeTwo   = list.new Node(2);
+		Node nodeThree = list.new Node(3);
+		
+		list.addNode(nodeOne);
+		list.addNode(nodeTwo);
+		list.addNode(nodeThree);
+		list.printLinkedList();
+		list.removeNode(2);
+		list.printLinkedList();
+		list.removeNode(1);
+		list.printLinkedList();
+		list.removeNode(3);
+		list.printLinkedList();
+	}
+	
+	
 	private Node head;
 	private Node tail;
 	
 	
 	public LinkedList(){
-		
+		head = null;
+		tail = null;
 	}
 	
 	
@@ -54,8 +70,8 @@ public class LinkedList {
 	
 	
 	public void removeNode(int id){
-		current  = head;
-		previous = null;
+		Node current  = head;
+		Node previous = null;
 		
 		while (current != null){
 			if (current.getId() == id){
@@ -77,6 +93,18 @@ public class LinkedList {
 			previous = current;
 			current  = current.getNext();
 		}
+	}
+	
+	
+	public void printLinkedList(){
+		Node current = head;
+		System.out.println("------------");
+		System.out.println("Linked List:");
+		while (current != null){
+			System.out.println(current.getId());
+			current = current.getNext();
+		}
+		System.out.println("------------");
 	}
 	
 	
