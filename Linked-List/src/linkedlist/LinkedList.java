@@ -29,20 +29,24 @@ public class LinkedList {
 	
 	public static void main(String[] args){
 		LinkedList list = new LinkedList();
+		
 		//Test nodes
 		Node nodeOne   = list.new Node(1);
 		Node nodeTwo   = list.new Node(2);
 		Node nodeThree = list.new Node(3);
 		
+		//Add nodes
 		list.addNode(nodeOne);
 		list.addNode(nodeTwo);
 		list.addNode(nodeThree);
 		list.printLinkedList();
-		list.removeNode(2);
+		
+		//Remove nodes
+		list.removeNode(nodeOne);
 		list.printLinkedList();
 		list.removeNode(1);
 		list.printLinkedList();
-		list.removeNode(3);
+		list.removeNode(nodeThree);
 		list.printLinkedList();
 	}
 	
@@ -113,6 +117,8 @@ public class LinkedList {
 					tail = previous;
 				}
 			}
+			previous = current;
+			current = current.getNext();
 		}
 	}
 	
