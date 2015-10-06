@@ -17,6 +17,10 @@ public class LinkedList {
 			return this.id;
 		}
 		
+		public void setId(int newId){
+			this.id = newId;
+		}
+		
 		public Node getNext(){
 			return this.next;
 		}
@@ -42,12 +46,6 @@ public class LinkedList {
 		list.printLinkedList();
 		
 		//Remove nodes
-		list.removeNode(nodeOne);
-		list.printLinkedList();
-		list.removeNode(1);
-		list.printLinkedList();
-		list.removeNode(nodeThree);
-		list.printLinkedList();
 	}
 	
 	
