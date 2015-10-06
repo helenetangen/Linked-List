@@ -17,6 +17,10 @@ public class LinkedList {
 			return this.id;
 		}
 		
+		public void setId(int newId){
+			this.id = newId;
+		}
+		
 		public Node getNext(){
 			return this.next;
 		}
@@ -38,11 +42,11 @@ public class LinkedList {
 		list.addNode(nodeTwo);
 		list.addNode(nodeThree);
 		list.printLinkedList();
-		list.removeNode(2);
+		list.removeNodeWithoutKnowingHead(nodeOne);
 		list.printLinkedList();
-		list.removeNode(1);
+		list.removeNodeWithoutKnowingHead(nodeTwo);
 		list.printLinkedList();
-		list.removeNode(3);
+		list.removeNodeWithoutKnowingHead(nodeThree);
 		list.printLinkedList();
 	}
 	
@@ -114,6 +118,19 @@ public class LinkedList {
 				}
 			}
 		}
+	}
+	
+	
+	public void removeNodeWithoutKnowingHead(Node node){
+		if (node.getNext() == null){
+			System.out.println("Next = null: " + node.getId());
+			return;
+		}
+		else{
+			node.setId(node.getNext().getId());
+			node.setNext(node.getNext().getNext());
+		}
+		
 	}
 	
 	
