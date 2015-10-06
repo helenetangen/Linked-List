@@ -42,6 +42,8 @@ public class LinkedList {
 		list.addNode(nodeTwo);
 		list.addNode(nodeThree);
 		list.printLinkedList();
+		
+		//Remove nodes
 		list.removeNodeWithoutKnowingHead(nodeOne);
 		list.printLinkedList();
 		list.removeNodeWithoutKnowingHead(nodeTwo);
@@ -118,19 +120,6 @@ public class LinkedList {
 				}
 			}
 		}
-	}
-	
-	
-	public void removeNodeWithoutKnowingHead(Node node){
-		if (node.getNext() == null){
-			System.out.println("Next = null: " + node.getId());
-			return;
-		}
-		else{
-			node.setId(node.getNext().getId());
-			node.setNext(node.getNext().getNext());
-		}
-		
 	}
 	
 	
