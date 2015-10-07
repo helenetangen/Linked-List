@@ -149,7 +149,7 @@ public class LinkedList {
 	}
 	
 	
-		public void removeDuplicatesWithoutBuffer(){
+	public void removeDuplicatesWithoutBuffer(){
 		Node current = head;
 		while (current != null){
 			Node kid = current.getNext();
@@ -165,6 +165,24 @@ public class LinkedList {
 			}
 			current = current.getNext();
 		}
+	}
+	
+
+	public Node findKthLastElement(int k){
+		Node current = head;
+		Node kBehind = head;
+		int count = 0; 
+		while (current != null){
+			if (count >= k){
+				kBehing = kBehind.getNext();
+			}
+			current = current.getNext();
+			count++;
+		}
+		if (count < k){
+			return null;
+		}
+		return kBehing;
 	}
 	
 	
